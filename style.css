@@ -304,6 +304,21 @@ button {
     list-style-position: inside;
 }
 
+/* Term Lists */
+.term-list {
+    background-color: var(--clouds);
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    list-style-position: inside;
+}
+
+.modal-description h3 {
+    color: var(--peterriver);
+    margin: 20px 0 10px;
+    font-weight: 400;
+}
+
 .hide {
     display: none;
 }
