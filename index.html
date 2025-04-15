@@ -26,9 +26,9 @@
                 <i class="icon">✂️</i>
                 <span>Remove Spokespeople</span>
             </button>
-            <button class="tool-button disabled" data-tool="3" style="background-color: var(--silver);">
-                <i class="icon">⏳</i>
-                <span>Coming Soon</span>
+            <button class="tool-button active" data-tool="3" style="background-color: var(--amethyst);">
+                <i class="icon">🔄</i>
+                <span>Normalize Text</span>
             </button>
             <button class="tool-button disabled" data-tool="4" style="background-color: var(--silver);">
                 <i class="icon">⏳</i>
@@ -115,74 +115,96 @@ Campaign Name,Campaign Type,Vendor
             </div>
         </div>
         
-        <!-- Modal for Tool #2 -->
-        <div id="tool2Modal" class="modal">
+        <!-- Modal for Tool #3 -->
+        <div id="tool3Modal" class="modal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
-                <h2>Remove Spokespeople Names</h2>
+                <h2>Normalize Sponsorship & Newsletter Text</h2>
                 <div class="modal-description">
-                    <p>This tool removes specified spokesperson names from the Campaign Name column in your CSV file.</p>
-                    <p>Important: Names at the beginning of Campaign Name will NOT be removed.</p>
-                    <p>For example, if your CSV has entries like:</p>
-                    <pre>
-Campaign Name
-123 Greeting - Sean Hannity
-123 Greeting (Ben Stein)
-123 Greeting [Chuck Norris]
-123 Greeting Hannity
-Sean Hannity - 123 Greeting</pre>
-                    <p>It will be processed to:</p>
-                    <pre>
-Campaign Name
-123 Greeting
-123 Greeting
-123 Greeting
-123 Greeting
-Sean Hannity - 123 Greeting</pre>
-                    <p>Note that "Sean Hannity - 123 Greeting" remains unchanged because the name is at the beginning.</p>
-                    <p>Current list of names to remove:</p>
-                    <ul id="spokespeopleList">
-                        <li>Sean Hannity</li>
-                        <li>Hannity</li>
-                        <li>Ben Stein</li>
-                        <li>Dennis Quaid</li>
-                        <li>Chuck Norris</li>
-                        <li>Mike Lindell</li>
+                    <p>This tool normalizes "Sponsorship" and "Newsletter" text in the Campaign Name column.</p>
+                    <p>It standardizes various forms of these terms to a consistent format with parentheses.</p>
+                    
+                    <h3>Sponsorship Normalization</h3>
+                    <p>The following terms will be normalized to <strong>(Sponsorship)</strong>:</p>
+                    <ul class="term-list">
+                        <li>Sponsorship</li>
+                        <li>sponsorship</li>
+                        <li>Sponsor</li>
+                        <li>sponsor</li>
                     </ul>
+                    
+                    <p>Example:</p>
+                    <pre>
+Campaign Name
+Acme Email - Sponsorship
+Acme Email - Spon
+Acme Email - Spons
+Acme Email [Sponsorship]</pre>
+                    <p>Will be normalized to:</p>
+                    <pre>
+Campaign Name
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)</pre>
+                    
+                    <h3>Newsletter Normalization</h3>
+                    <p>The following terms will be normalized to <strong>(Newsletter)</strong>:</p>
+                    <ul class="term-list">
+                        <li>Newsletter</li>
+                        <li>newsletter</li>
+                    </ul>
+                    
+                    <p>Example:</p>
+                    <pre>
+Campaign Name
+Disney Email - Newsletter
+Disney Email - newsletter
+Disney Email | Newsletter
+Disney Email [Newsletter]</pre>
+                    <p>Will be normalized to:</p>
+                    <pre>
+Campaign Name
+Disney Email (Newsletter)
+Disney Email (Newsletter)
+Disney Email (Newsletter)
+Disney Email (Newsletter)</pre>
+                    
                     <p>Follow these steps:</p>
                     <ol>
                         <li>Upload your CSV file using the button below</li>
-                        <li>Click "Process CSV" to remove spokesperson names</li>
+                        <li>Click "Process CSV" to normalize the text</li>
                         <li>Download the processed file</li>
                     </ol>
                 </div>
                 <div class="modal-actions">
                     <div class="upload-section">
-                        <label for="csvFileInput2" class="custom-file-upload">
+                        <label for="csvFileInput3" class="custom-file-upload">
                             <i class="icon">📁</i> Choose CSV File
                         </label>
-                        <input type="file" id="csvFileInput2" accept=".csv" />
-                        <span id="fileNameDisplay2">No file selected</span>
+                        <input type="file" id="csvFileInput3" accept=".csv" />
+                        <span id="fileNameDisplay3">No file selected</span>
                     </div>
                     
                     <div class="processing-section">
-                        <button id="processBtn2" class="btn-generate" disabled>Process CSV</button>
+                        <button id="processBtn3" class="btn-generate" disabled>Process CSV</button>
                     </div>
                     
                     <div class="download-section">
-                        <button id="downloadBtn2" class="btn-download" disabled>Download Processed CSV</button>
+                        <button id="downloadBtn3" class="btn-download" disabled>Download Processed CSV</button>
                     </div>
                 </div>
                 
-                <div id="processingIndicator2" class="loading-indicator hide">
+                <div id="processingIndicator3" class="loading-indicator hide">
                     <div class="spinner"></div>
                     <p>Processing CSV file...</p>
                 </div>
                 
-                <div id="results2" class="results-section hide">
+                <div id="results3" class="results-section hide">
                     <h3>Processing Results</h3>
-                    <p id="namesRemoved">Names removed: <span>0</span></p>
-                    <p id="rowsProcessed">Rows processed: <span>0</span></p>
+                    <p id="sponsorshipsNormalized">Sponsorships normalized: <span>0</span></p>
+                    <p id="newslettersNormalized">Newsletters normalized: <span>0</span></p>
+                    <p id="rowsProcessed3">Rows processed: <span>0</span></p>
                 </div>
             </div>
         </div>
@@ -191,5 +213,6 @@ Sean Hannity - 123 Greeting</pre>
     <script src="main.js"></script>
     <script src="tool1.js"></script>
     <script src="tool2.js"></script>
+    <script src="tool3.js"></script>
 </body>
 </html>
