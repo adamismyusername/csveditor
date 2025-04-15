@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
-    const toolButtons = document.querySelectorAll('.tool-button');
+    const removeButton = document.querySelector('.tool-button.active');
     const tool1Modal = document.getElementById('tool1Modal');
     const closeModalBtn = document.querySelector('.close-modal');
     const fileInput = document.getElementById('csvFileInput');
@@ -16,27 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let originalCsv = null;
     let processedCsv = null;
     
-    // Event Listeners
-    toolButtons.forEach(button => {
-        if (!button.classList.contains('disabled')) {
-            button.addEventListener('click', () => {
-                const toolId = button.getAttribute('data-tool');
-                if (toolId === '1') {
-                    tool1Modal.style.display = 'block';
-                }
-                // Future tools will be added here
-            });
-        }
+    // Event Listeners - Simplify the approach for the modal
+    
+    // Show modal when clicking the Remove Duplicates button
+    removeButton.addEventListener('click', function() {
+        tool1Modal.style.display = 'block';
     });
     
     // Close modal when clicking the X
-    closeModalBtn.addEventListener('click', () => {
+    closeModalBtn.addEventListener('click', function() {
         tool1Modal.style.display = 'none';
         resetToolState();
     });
     
     // Close modal when clicking outside of it
-    window.addEventListener('click', (event) => {
+    window.addEventListener('click', function(event) {
         if (event.target === tool1Modal) {
             tool1Modal.style.display = 'none';
             resetToolState();
@@ -44,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Handle file input change
-    fileInput.addEventListener('change', (event) => {
+    fileInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
             fileNameDisplay.textContent = file.name;
@@ -58,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Process CSV button click
-    processBtn.addEventListener('click', () => {
+    processBtn.addEventListener('click', function() {
         const file = fileInput.files[0];
         if (file) {
             processBtn.disabled = true;
@@ -68,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Read and process the file
             const reader = new FileReader();
             
-            reader.onload = (e) => {
+            reader.onload = function(e) {
                 const csvContent = e.target.result;
                 originalCsv = csvContent;
                 
                 // Process after a short delay to allow the UI to update
-                setTimeout(() => {
+                setTimeout(function() {
                     processedCsv = removeDuplicateRows(csvContent);
                     
                     // Update the UI
@@ -88,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Download button click
-    downloadBtn.addEventListener('click', () => {
+    downloadBtn.addEventListener('click', function() {
         if (processedCsv) {
             const blob = new Blob([processedCsv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
