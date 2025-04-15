@@ -16,32 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'Ben Stein',
         'Dennis Quaid',
         'Chuck Norris',
-        'Jim Rogers',
-        'Stew Peters',
-        'Laura Ingraham',
-        'Howie Carr',
         'Mike Lindell'
     ];
-    
-    // Variables to store CSV data
-    let originalCsv = null;
-    let processedCsv = null;
-    
-    // Handle file input change
-    if (fileInput) {
-        fileInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                fileNameDisplay.textContent = file.name;
-                processBtn.disabled = false;
-                // Reset previous results
-                resetResults();
-            } else {
-                fileNameDisplay.textContent = 'No file selected';
-                processBtn.disabled = true;
-            }
-        });
-    }
     
     // Process CSV button click
     if (processBtn) {
