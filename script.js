@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const toolButtons = document.querySelectorAll('.tool-button');
@@ -171,4 +170,3 @@ document.addEventListener('DOMContentLoaded', () => {
         processedCsv = null;
     }
 });
-</script>
