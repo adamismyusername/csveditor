@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         'Ben Stein',
         'Dennis Quaid',
         'Chuck Norris',
+        'Jim Rogers',
+        'Stew Peters',
+        'Laura Ingraham',
+        'Howie Carr',
         'Mike Lindell'
     ];
     
