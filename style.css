@@ -294,6 +294,16 @@ button {
     font-weight: 400;
 }
 
+/* Spokespeople List */
+#spokespeopleList {
+    background-color: var(--clouds);
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    columns: 2;
+    list-style-position: inside;
+}
+
 .hide {
     display: none;
 }
