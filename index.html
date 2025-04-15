@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSV Editor</h1>
+        </header>
+
+        <div class="app-description">
+            <h2>Edit CSV files with specialized tools</h2>
+            <p>Select a tool below to perform specific edits on your CSV files.</p>
+        </div>
+
+        <div class="tools-grid">
+            <button class="tool-button active" data-tool="1" style="background-color: var(--peterriver);">
+                <i class="icon">🗑️</i>
+                <span>Remove Duplicates</span>
+            </button>
+            <button class="tool-button disabled" data-tool="2" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="3" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="4" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="5" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="6" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="7" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="8" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="9" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+            <button class="tool-button disabled" data-tool="10" style="background-color: var(--silver);">
+                <i class="icon">⏳</i>
+                <span>Coming Soon</span>
+            </button>
+        </div>
+
+        <!-- Modal for Tool #1 -->
+        <div id="tool1Modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Remove Duplicate Rows</h2>
+                <div class="modal-description">
+                    <p>This tool removes rows where all values across all columns are identical to another row in the file.</p>
+                    <p>For example, if your CSV has multiple identical rows like:</p>
+                    <pre>
+Campaign Name,Campaign Type,Vendor
+123 Greeting,Email - 1st Party,Rainmaker
+123 Greeting,Email - 1st Party,Rainmaker
+123 Greeting,Email - 1st Party,Rainmaker</pre>
+                    <p>It will be reduced to a single row:</p>
+                    <pre>
+Campaign Name,Campaign Type,Vendor
+123 Greeting,Email - 1st Party,Rainmaker</pre>
+                    <p>Follow these steps:</p>
+                    <ol>
+                        <li>Upload your CSV file using the button below</li>
+                        <li>Click "Process CSV" to remove duplicate rows</li>
+                        <li>Download the processed file</li>
+                    </ol>
+                </div>
+                <div class="modal-actions">
+                    <div class="upload-section">
+                        <label for="csvFileInput" class="custom-file-upload">
+                            <i class="icon">📁</i> Choose CSV File
+                        </label>
+                        <input type="file" id="csvFileInput" accept=".csv" />
+                        <span id="fileNameDisplay">No file selected</span>
+                    </div>
+                    
+                    <div class="processing-section">
+                        <button id="processBtn" class="btn-generate" disabled>Process CSV</button>
+                    </div>
+                    
+                    <div class="download-section">
+                        <button id="downloadBtn" class="btn-download" disabled>Download Processed CSV</button>
+                    </div>
+                </div>
+                
+                <div id="processingIndicator" class="loading-indicator hide">
+                    <div class="spinner"></div>
+                    <p>Processing CSV file...</p>
+                </div>
+                
+                <div id="results" class="results-section hide">
+                    <h3>Processing Results</h3>
+                    <p id="duplicatesRemoved">Duplicates removed: <span>0</span></p>
+                    <p id="remainingRows">Remaining unique rows: <span>0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
