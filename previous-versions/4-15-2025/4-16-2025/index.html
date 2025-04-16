@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV Editor</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="alert.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>CSV Editor v0.01</h1>
+            <h1>CSV Editor</h1>
         </header>
 
         <div class="app-description" style="display: none;">
@@ -73,21 +68,5 @@
     <script src="js/tool1.js"></script>
     <script src="js/tool2.js"></script>
     <script src="js/tool3.js"></script>
-
- <!-- ALERT CLOSE BUTTON HANDLER -->
-<script>
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('alert-close') || event.target.parentElement.classList.contains('alert-close')) {
-            const alert = event.target.closest('.alert');
-            if (alert) {
-                alert.style.opacity = '0';
-                alert.style.transform = 'translateY(-10px)';
-                setTimeout(function() {
-                    alert.style.display = 'none';
-                }, 300);
-            }
-        }
-    });
-</script>
 </body>
 </html>

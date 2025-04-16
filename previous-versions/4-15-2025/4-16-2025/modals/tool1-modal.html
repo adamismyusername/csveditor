@@ -1,0 +1,53 @@
+<div id="tool1Modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Remove Duplicate Rows</h2>
+        <div class="modal-description">
+            <p>This tool removes rows where all values across all columns are identical to another row in the file.</p>
+            <p>For example, if your CSV has multiple identical rows like:</p>
+            <pre>
+Campaign Name,Campaign Type,Vendor
+123 Greeting,Email - 1st Party,Rainmaker
+123 Greeting,Email - 1st Party,Rainmaker
+123 Greeting,Email - 1st Party,Rainmaker</pre>
+            <p>It will be reduced to a single row:</p>
+            <pre>
+Campaign Name,Campaign Type,Vendor
+123 Greeting,Email - 1st Party,Rainmaker</pre>
+            <p>Follow these steps:</p>
+            <ol>
+                <li>Upload your CSV file using the button below</li>
+                <li>Click "Process CSV" to remove duplicate rows</li>
+                <li>Download the processed file</li>
+            </ol>
+        </div>
+        <div class="modal-actions">
+            <div class="upload-section">
+                <label for="csvFileInput1" class="custom-file-upload">
+                    <i class="icon">📁</i> Choose CSV File
+                </label>
+                <input type="file" id="csvFileInput1" accept=".csv" />
+                <span id="fileNameDisplay1">No file selected</span>
+            </div>
+            
+            <div class="processing-section">
+                <button id="processBtn1" class="btn-generate" disabled>Process CSV</button>
+            </div>
+            
+            <div class="download-section">
+                <button id="downloadBtn1" class="btn-download" disabled>Download Processed CSV</button>
+            </div>
+        </div>
+        
+        <div id="processingIndicator1" class="loading-indicator hide">
+            <div class="spinner"></div>
+            <p>Processing CSV file...</p>
+        </div>
+        
+        <div id="results1" class="results-section hide">
+            <h3>Processing Results</h3>
+            <p id="duplicatesRemoved">Duplicates removed: <span>0</span></p>
+            <p id="remainingRows">Remaining unique rows: <span>0</span></p>
+        </div>
+    </div>
+</div>

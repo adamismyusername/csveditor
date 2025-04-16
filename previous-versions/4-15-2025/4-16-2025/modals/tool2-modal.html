@@ -4,23 +4,14 @@
         <h2>Remove Spokespeople Names</h2>
         <div class="modal-description">
             <p>This tool removes specified spokesperson names from the Campaign Name column in your CSV file.</p>
-            <div class="alert alert-danger">
-                <div class="alert-icon">
-                    <i class="fas fa-triangle-exclamation alert-icon-animated"></i>
-                </div>
-                <div class="alert-content">
-                    <div class="alert-title">Important</div>
-                    <p class="alert-message">Names at the beginning of Campaign Name will NOT be removed.</p>
-                </div>
-                <!-- CLOSE BUTTON - HIDDEN -->
-                <!-- <button class="alert-close">&times;</button> -->
-            </div>
-            <p><strong>Examples:</strong></p>
-            <pre><strong class="important-red">Dunder Mifflin - Dwight Schrute</strong> changed to <strong class="important-green">Dunder Mifflin</strong></pre>
-            <pre><strong class="important-red">Dunder Mifflin (Jim Halpert)</strong> changed to <strong class="important-green">Dunder Mifflin</strong></pre>
-            <pre><strong class="important-red">Pam Beesly - Dunder Mifflin</strong> not changed since spokespersons name is before campaign name</pre>
+            <p><strong class="important-note">Important: </strong> Names at the beginning of Campaign Name will NOT be removed.</p>
+            <p>Examples:</p>
+            <pre><span class="important-red">Dunder Mifflin - Dwight Schrute</span> will be changed to <span class="important-green">Dunder Mifflin</span></pre>
+            <pre><span class="important-red">Dunder Mifflin (Jim Halpert)</span> will be changed to <span class="important-green">Dunder Mifflin</span></pre>
+            <pre><span class="important-red">Pam Beesly - Dunder Mifflin</span> will NOT be changed</pre>
 
-            <p><strong>List of Names Removed:</strong></p>
+            <p>Pam Beesly - Dunder Mifflin</p>
+            <p>Current list of names to remove:</p>
             <ul id="spokespeopleList">
                 <li>Sean Hannity</li>
                 <li>Hannity</li>
@@ -29,7 +20,7 @@
                 <li>Chuck Norris</li>
                 <li>Mike Lindell</li>
             </ul>
-            <p><strong>Instructions for Use:</strong></p>
+            <p>Follow these steps:</p>
             <ol>
                 <li>Upload your CSV file using the button below</li>
                 <li>Click "Process CSV" to remove spokesperson names</li>

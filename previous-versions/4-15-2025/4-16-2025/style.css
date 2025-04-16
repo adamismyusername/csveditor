@@ -25,8 +25,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -41,10 +40,10 @@ body {
     padding: 20px;
 }
 
-p {padding: 20px 0 15px 0;}
+p {padding: 0 0 20px 0}
 
 header {
-    background-color: var(--wetasphalt);
+    background-color: var(--peterriver);
     color: white;
     padding: 20px 0;
     margin-bottom: 30px;
@@ -54,7 +53,7 @@ header {
 
 header h1 {
     text-align: center;
-    font-weight: 900;
+    font-weight: 300;
 }
 
 .app-description {
@@ -98,7 +97,6 @@ header h1 {
 
 .tool-button.active {
     background-color: var(--peterriver);
-    font-weight: 300 !important;
 }
 
 .tool-button.active:hover {
@@ -138,7 +136,7 @@ header h1 {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 900px;
+    max-width: 800px;
     width: 90%;
     position: relative;
 }
@@ -158,8 +156,8 @@ header h1 {
 
 .modal-content h2 {
     color: var(--peterriver);
-    margin-bottom: 0;
-    font-weight: 700;
+    margin-bottom: 20px;
+    font-weight: 400;
     border-bottom: 2px solid var(--clouds);
     padding-bottom: 10px;
 }
@@ -173,22 +171,14 @@ header h1 {
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
-    margin: 0 0 10px 0;
+    margin: 10px 0;
+    font-family: monospace;
     white-space: pre-wrap;
-    color: var(--asbestos);
-    font-size: 16px;
-    font-weight: 300;
 }
-
-.modal-description pre strong {
-    font-weight: 500;
-}
-
-
 
 .modal-description ol {
     margin-left: 20px;
-    /** margin-top: 10px; **/
+    margin-top: 10px;
 }
 
 .modal-actions {
@@ -312,7 +302,8 @@ button {
     background-color: var(--clouds);
     padding: 10px 15px;
     border-radius: 4px;
-    columns: 3;
+    margin: 10px 0;
+    columns: 2;
     list-style-position: inside;
 }
 
@@ -339,7 +330,7 @@ button {
 
 .important-red {color: var(--pomegranate);}
 .important-blue {color: var(--peterriver);}
-.important-green {color: var(--greensea);}
+.important-green {color: var(--turquoise);}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

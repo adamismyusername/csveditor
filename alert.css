@@ -1,0 +1,102 @@
+/* Alert Component Styles */
+.alert {
+    position: relative;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: alertFadeIn 0.3s ease-in-out;
+}
+
+@keyframes alertFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert .alert-icon {
+    margin-right: 20px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert .alert-content {
+    flex: 1;
+}
+
+.alert .alert-content p {
+    margin: 0 0 0 0; padding: 0 0 0 0;
+}
+
+.alert .alert-title {
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.alert .alert-message {
+    font-weight: 400;
+    margin: 0;
+    font-size: 14px;
+}
+
+.alert .alert-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    padding: 0;
+    font-size: 20px;
+    transition: opacity 0.2s;
+}
+
+.alert .alert-close:hover {
+    opacity: 1;
+}
+
+/* Alert Types */
+.alert-info {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left-color: var(--peterriver);
+    color: var(--peterriver);
+}
+
+.alert-success {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left-color: var(--emerald);
+    color: var(--emerald);
+}
+
+.alert-warning {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left-color: var(--sunflower);
+    color: var(--sunflower);
+}
+
+.alert-danger {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left-color: var(--pomegranate);
+    color: var(--pomegranate);
+}
+
+.alert-primary {
+    background-color: rgba(155, 89, 182, 0.1);
+    border-left-color: var(--amethyst);
+    color: var(--amethyst);
+}
+
+/* Pulse animation for the icon */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.alert-icon-animated {
+    animation: pulse 2s infinite;
+}
