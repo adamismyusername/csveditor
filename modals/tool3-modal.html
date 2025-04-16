@@ -1,0 +1,92 @@
+<div id="tool3Modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Normalize Sponsorship & Newsletter Text</h2>
+        <div class="modal-description">
+            <p>This tool normalizes "Sponsorship" and "Newsletter" text in the Campaign Name column.</p>
+            <p>It standardizes various forms of these terms to a consistent format with parentheses.</p>
+            
+            <h3>Sponsorship Normalization</h3>
+            <p>The following terms will be normalized to <strong>(Sponsorship)</strong>:</p>
+            <ul class="term-list">
+                <li>Sponsorship</li>
+                <li>sponsorship</li>
+                <li>Sponsor</li>
+                <li>sponsor</li>
+            </ul>
+            
+            <p>Example:</p>
+            <pre>
+Campaign Name
+Acme Email - Sponsorship
+Acme Email - Spon
+Acme Email - Spons
+Acme Email [Sponsorship]</pre>
+            <p>Will be normalized to:</p>
+            <pre>
+Campaign Name
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)
+Acme Email (Sponsorship)</pre>
+            
+            <h3>Newsletter Normalization</h3>
+            <p>The following terms will be normalized to <strong>(Newsletter)</strong>:</p>
+            <ul class="term-list">
+                <li>Newsletter</li>
+                <li>newsletter</li>
+            </ul>
+            
+            <p>Example:</p>
+            <pre>
+Campaign Name
+Disney Email - Newsletter
+Disney Email - newsletter
+Disney Email | Newsletter
+Disney Email [Newsletter]</pre>
+            <p>Will be normalized to:</p>
+            <pre>
+Campaign Name
+Disney Email (Newsletter)
+Disney Email (Newsletter)
+Disney Email (Newsletter)
+Disney Email (Newsletter)</pre>
+            
+            <p>Follow these steps:</p>
+            <ol>
+                <li>Upload your CSV file using the button below</li>
+                <li>Click "Process CSV" to normalize the text</li>
+                <li>Download the processed file</li>
+            </ol>
+        </div>
+        <div class="modal-actions">
+            <div class="upload-section">
+                <label for="csvFileInput3" class="custom-file-upload">
+                    <i class="icon">📁</i> Choose CSV File
+                </label>
+                <input type="file" id="csvFileInput3" accept=".csv" />
+                <span id="fileNameDisplay3">No file selected</span>
+            </div>
+            
+            <div class="processing-section">
+                <button id="processBtn3" class="btn-generate" disabled>Process CSV</button>
+            </div>
+            
+            <div class="download-section">
+                <button id="downloadBtn3" class="btn-download" disabled>Download Processed CSV</button>
+            </div>
+        </div>
+        
+        <div id="processingIndicator3" class="loading-indicator hide">
+            <div class="spinner"></div>
+            <p>Processing CSV file...</p>
+        </div>
+        
+        <div id="results3" class="results-section hide">
+            <h3>Processing Results</h3>
+            <p id="sponsorshipsNormalized">Sponsorships normalized: <span>0</span></p>
+            <p id="newslettersNormalized">Newsletters normalized: <span>0</span></p>
+            <p id="rowsProcessed3">Rows processed: <span>0</span></p>
+        </div>
+    </div>
+</div>

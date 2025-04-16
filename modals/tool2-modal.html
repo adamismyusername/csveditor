@@ -1,0 +1,70 @@
+<div id="tool2Modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Remove Spokespeople Names</h2>
+        <div class="modal-description">
+            <p>This tool removes specified spokesperson names from the Campaign Name column in your CSV file.</p>
+            <p>Important: Names at the beginning of Campaign Name will NOT be removed.</p>
+            <p>For example, if your CSV has entries like:</p>
+            <pre>
+Campaign Name
+123 Greeting - Sean Hannity
+123 Greeting (Ben Stein)
+123 Greeting [Chuck Norris]
+123 Greeting Hannity
+Sean Hannity - 123 Greeting</pre>
+            <p>It will be processed to:</p>
+            <pre>
+Campaign Name
+123 Greeting
+123 Greeting
+123 Greeting
+123 Greeting
+Sean Hannity - 123 Greeting</pre>
+            <p>Note that "Sean Hannity - 123 Greeting" remains unchanged because the name is at the beginning.</p>
+            <p>Current list of names to remove:</p>
+            <ul id="spokespeopleList">
+                <li>Sean Hannity</li>
+                <li>Hannity</li>
+                <li>Ben Stein</li>
+                <li>Dennis Quaid</li>
+                <li>Chuck Norris</li>
+                <li>Mike Lindell</li>
+            </ul>
+            <p>Follow these steps:</p>
+            <ol>
+                <li>Upload your CSV file using the button below</li>
+                <li>Click "Process CSV" to remove spokesperson names</li>
+                <li>Download the processed file</li>
+            </ol>
+        </div>
+        <div class="modal-actions">
+            <div class="upload-section">
+                <label for="csvFileInput2" class="custom-file-upload">
+                    <i class="icon">📁</i> Choose CSV File
+                </label>
+                <input type="file" id="csvFileInput2" accept=".csv" />
+                <span id="fileNameDisplay2">No file selected</span>
+            </div>
+            
+            <div class="processing-section">
+                <button id="processBtn2" class="btn-generate" disabled>Process CSV</button>
+            </div>
+            
+            <div class="download-section">
+                <button id="downloadBtn2" class="btn-download" disabled>Download Processed CSV</button>
+            </div>
+        </div>
+        
+        <div id="processingIndicator2" class="loading-indicator hide">
+            <div class="spinner"></div>
+            <p>Processing CSV file...</p>
+        </div>
+        
+        <div id="results2" class="results-section hide">
+            <h3>Processing Results</h3>
+            <p id="namesRemoved">Names removed: <span>0</span></p>
+            <p id="rowsProcessed">Rows processed: <span>0</span></p>
+        </div>
+    </div>
+</div>

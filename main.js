@@ -1,63 +1,71 @@
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements for tool selection
     const toolButtons = document.querySelectorAll('.tool-button.active');
-    const modals = document.querySelectorAll('.modal');
-    const closeModalBtns = document.querySelectorAll('.close-modal');
+    const modalContainer = document.getElementById('modalContainer');
     
-    // Clear any existing event listeners by cloning and replacing elements
-    // This prevents conflicts with tool-specific JS files
+    // Tool selection event listeners
     toolButtons.forEach(function(button) {
-        const newButton = button.cloneNode(true);
-        button.parentNode.replaceChild(newButton, button);
-        
-        // Add click event listener to the new button
-        newButton.addEventListener('click', function() {
+        button.addEventListener('click', function() {
             const toolId = this.getAttribute('data-tool');
-            const targetModalId = 'tool' + toolId + 'Modal';
-            const targetModal = document.getElementById(targetModalId);
-            
-            if (targetModal) {
-                // Hide all modals first
-                modals.forEach(function(modal) {
-                    modal.style.display = 'none';
-                });
+            loadModalContent(toolId);
+        });
+    });
+    
+    // Function to load modal content dynamically
+    function loadModalContent(toolId) {
+        fetch(`modals/tool${toolId}-modal.html`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load modal for tool ${toolId}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                // Insert the modal HTML into the container
+                modalContainer.innerHTML = html;
                 
-                // Show the target modal
-                targetModal.style.display = 'block';
-            }
-        });
-    });
+                // Show the modal
+                const modal = document.getElementById(`tool${toolId}Modal`);
+                if (modal) {
+                    modal.style.display = 'block';
+                    
+                    // Add event listeners for the modal
+                    setupModalEventListeners(modal);
+                    
+                    // Initialize file input handler
+                    initializeFileInput(toolId);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading modal:', error);
+            });
+    }
     
-    // Close modal when clicking the X
-    closeModalBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const modal = this.closest('.modal');
-            if (modal) {
+    // Setup event listeners for the modal
+    function setupModalEventListeners(modal) {
+        // Close modal when clicking the X
+        const closeBtn = modal.querySelector('.close-modal');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
-            }
-        });
-    });
-    
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(event) {
-        modals.forEach(function(modal) {
+                modalContainer.innerHTML = '';  // Clear the modal content
+            });
+        }
+        
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
             if (event.target === modal) {
                 modal.style.display = 'none';
+                modalContainer.innerHTML = '';  // Clear the modal content
             }
         });
-    });
+    }
     
-    // Initialize the file input handlers for each tool
-    initializeFileInputs();
-});
-
-// Initialize file input handlers
-function initializeFileInputs() {
-    // For each tool, initialize the file input handler
-    for (let i = 1; i <= 3; i++) {
-        const fileInput = document.getElementById('csvFileInput' + i);
-        const fileNameDisplay = document.getElementById('fileNameDisplay' + i);
-        const processBtn = document.getElementById('processBtn' + i);
+    // Initialize file input handler
+    function initializeFileInput(toolId) {
+        const fileInput = document.getElementById(`csvFileInput${toolId}`);
+        const fileNameDisplay = document.getElementById(`fileNameDisplay${toolId}`);
+        const processBtn = document.getElementById(`processBtn${toolId}`);
         
         if (fileInput && fileNameDisplay && processBtn) {
             fileInput.addEventListener('change', function(event) {
@@ -72,4 +80,4 @@ function initializeFileInputs() {
             });
         }
     }
-}
+});
