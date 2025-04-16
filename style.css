@@ -328,6 +328,10 @@ button {
 
 .important-note {color: #B71C1C}
 
+.important-red {color: var(--pomegranate);}
+.important-blue {color: var(--peterriver);}
+.important-green {color: var(--turquoise);}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .tools-grid {
