@@ -40,6 +40,8 @@ body {
     padding: 20px;
 }
 
+p {padding: 0 0 20px 0}
+
 header {
     background-color: var(--peterriver);
     color: white;
@@ -110,7 +112,7 @@ header h1 {
 }
 
 .tool-button .icon {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 10px;
     font-style: normal;
 }
